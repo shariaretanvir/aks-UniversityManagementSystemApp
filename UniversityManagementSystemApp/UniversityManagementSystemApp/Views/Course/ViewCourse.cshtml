@@ -1,0 +1,93 @@
+﻿@model UniversityManagementSystemApp.Models.CourseAssignTeacher
+@{
+    var courseInfo = ViewBag.courseDetails;
+    List<SelectListItem> alistofdept = ViewBag.listofDepartments;
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewCourse</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h4> Course Assigning To Teacher</h4>
+    <hr />
+    <div class="container">
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(x => x.DepartmentId)
+                <span style="color: red;">*</span>
+            </div>
+            <div class="col-md-6">
+                @Html.DropDownListFor(x => x.DepartmentId, new List<SelectListItem>(alistofdept), "Select Departments", new { @class = "form-control" })
+            </div>
+        </div>
+        <h4 style="padding-top: 40px">Course Information</h4>
+
+
+
+
+
+
+        <table class="table table-hover" style="border: 1px solid black" id="mytable">
+            <thead class="">
+                <tr>
+                    <th>Code</th>
+                    <th>Name/Title</th>
+                    <th>Semester</th>
+                    <th>Assign To</th>
+                </tr>
+            </thead>
+            <tbody id="items">
+
+                @*@if (courseInfo != null)
+                    {
+
+                        foreach (dynamic a in ViewBag.courseDetails)
+                        {
+                            <tr>
+                               <td>@a.CourseCode</td>
+                                <td><@a.CourseName />td>
+                                <td>@a.SemesterName</td>
+                                <td>@a.TeacherName</td>
+                            </tr>
+                        }
+                    }*@
+            </tbody>
+        </table>
+    </div>
+    <script src="~/Scripts/jquery-2.2.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#DepartmentId").change(function () {
+                var deptId = $("#DepartmentId").val();
+                var json = { departmentId: deptId };
+                $("tbody#items").empty();
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("ViewCourse", "Course")',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(json),
+                    success: function (data) {
+                        //alert(data);
+                        //var result = $.parseJSON(data);
+                        $.each(data, function (i, val) {
+                            //alert(val);
+                            $("tbody#items").append("<tr><td>" + val.CourseCode + "</td><td><a><div>" + val.CourseName + "</div></a></td><td><a><div>" + val.SemesterName + "</div></a></td><td><a><div>" + val.TeacherName + "</div></a></td>");
+                            //alert(JSON.stringify(["val.CourseCode"]));
+                            //alert(value["CourseCode"]);
+                            //$('#mytable tbody').append("<tr><td>" + data.column1 + "</td><td>" + data.column2 + "</td><td>" + data.column3 + "</td></tr>");
+                            //$("#aa").append('<td>' + value["Value"] + '</td>');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

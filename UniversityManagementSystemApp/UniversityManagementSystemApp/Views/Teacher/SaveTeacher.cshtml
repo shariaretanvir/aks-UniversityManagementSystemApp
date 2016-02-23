@@ -1,0 +1,178 @@
+﻿@using System.Web.Razor.Parser.SyntaxTree
+@using System.Web.UI.WebControls
+@using UniversityManagementSystemApp.Models
+@model  UniversityManagementSystemApp.Models.Teacher
+@{
+    string error = ViewBag.Error;
+    List<SelectListItem> alistofDesignations = ViewBag.ListOfDesignation;
+    List<SelectListItem> alistofDepartments = ViewBag.LoadDepartment;
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SaveTeacher</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    @*<link href="~/Content/Site.css" rel="stylesheet" />*@
+    <link href="~/Content/myStyle.css" rel="stylesheet" />
+    <style>
+        .form-group {
+            padding-bottom: 10px;
+        }
+
+
+        form label.error {
+            display: inline;
+            font: 14px Tahoma,sans-serif;
+            color: #ed7476;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+
+        form input.error, form input.error:hover, form input.error:focus, form select.error, form textarea.error {
+            border: 1px solid #ed7476;
+            background: #FFEDED;
+        }
+
+        .form-control {
+            display: inline-block;
+        }
+    </style>
+
+</head>
+<body>
+    @*<form method="POST" id="myForm" class="form-horizontal">*@
+    <h4> Save Teacher</h4>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        <div class="form-horizontal" style="padding: 30px">
+
+            <div class="form-group">
+                <div class="col-md-2">
+                    @Html.LabelFor(x => x.Name)
+                    <span style="color: red;">*</span>
+                </div>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                </div>
+                <div class="col-md-2 ">
+                    @Html.ValidationMessageFor(x => x.Name)
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-2">
+                    @Html.LabelFor(x => x.Address)
+                    <span style="color: red;">*</span>
+                </div>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+                </div>
+                <div class="col-md-2">
+                    @Html.ValidationMessageFor(x => x.Address)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-2">
+                    @Html.LabelFor(x => x.Email)
+                    <span style="color: red;">*</span>
+                </div>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                </div>
+                <div class="col-md-2">
+                    @Html.ValidationMessageFor(x => x.Email)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-2">
+                    @Html.LabelFor(x => x.ContactNo)
+                    <span style="color: red;">*</span>
+                </div>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(x => x.ContactNo, new { @class = "form-control" })
+                </div>
+                <div class="col-md-2">
+                    @Html.ValidationMessageFor(x => x.ContactNo)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-2">
+                    @Html.LabelFor(x => x.DesignationId)
+                    <span style="color: red;">*</span>
+                </div>
+                <div class="col-md-6">
+                    @Html.DropDownListFor(x => x.DesignationId, new List<SelectListItem>(alistofDesignations),"Select Designations", new { @class = "form-control" })
+                </div>
+                <div class="col-md-2">
+                    @Html.ValidationMessageFor(x => x.DesignationId)
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-2">
+                    @Html.LabelFor(x => x.DepartmentId)
+                    <span style="color: red;">*</span>
+                </div>
+                <div class="col-md-6">
+                    @Html.DropDownListFor(x => x.DepartmentId, new List<SelectListItem>(alistofDepartments),"Select Departments", new { @class = "form-control" })
+                </div>
+                <div class="col-md-2">
+                    @Html.ValidationMessageFor(x => x.DepartmentId)
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-2">
+                    @Html.LabelFor(x => x.Credit_Taken)
+                    <span style="color: red;">*</span>
+                </div>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(x => x.Credit_Taken, new { @class = "form-control" })
+                </div>
+                <div class="col-md-2">
+                    @Html.ValidationMessageFor(x => x.Credit_Taken)
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </div>
+
+            <div class="panel-body panel-danger">
+                @ViewBag.Message
+            </div>
+            <div class="panel-body panel-danger">
+                @if (error != null)
+                {
+                    @ViewBag.Error
+                }
+            </div>
+
+
+        </div>
+    }
+
+    @*</form>*@
+
+
+    <script src="~/Scripts/jquery-2.2.0.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

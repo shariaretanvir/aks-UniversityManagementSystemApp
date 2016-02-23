@@ -1,0 +1,116 @@
+﻿@using System.Web.UI.WebControls
+@using UniversityManagementSystemApp.Models
+@model UniversityManagementSystemApp.Models.AllocateClassRoom
+@{
+    List<RoomNo> roomNo = ViewBag.RoomNo;
+    List<Day> days = ViewBag.Day;
+    List<SelectListItem> alistofdept = ViewBag.listofDepartments;
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <h4> Allocate ClassRoom</h4>
+    <hr />
+    @using (Html.BeginForm("Index", "ClassRoom", null, FormMethod.Post, new { @id = "myForm", @name = "myForm" }))
+    {
+        <div class="form-horizontal" style="padding: 30px">
+            <div class="form-group">
+                <div class="col-md-2">
+                    @Html.LabelFor(x => x.DepartmentId)
+                    <span style="color: red;">*</span>
+                </div>
+                <div class="col-md-6">
+                    @Html.DropDownListFor(x => x.DepartmentId, new List<SelectListItem>(alistofdept), "Select Departments", new { @class = "form-control" })
+                </div>
+                <div class="col-md-2">
+                    @Html.ValidationMessageFor(x => x.DepartmentId)
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="CourseId" class="col-md-2">Select Course<span style="color: red;">*</span></label>
+                <div class="col-md-6">
+                    <select name="CourseId" id="CourseId" class="form-control">
+                        <option value="">Select Teacher</option>
+                    </select>
+                </div>
+
+
+            </div>
+            
+            <div class="form-group">
+                <label for="RoomId" class="col-md-2">Select Course<span style="color: red;">*</span></label>
+                <div class="col-md-6">
+                    <select name="RoomId" id="RoomId" class="form-control">
+                        <option value="">Select Teacher</option>
+                        @if (roomNo != null)
+                        {
+                            foreach (RoomNo rom in roomNo)
+                            {
+                                <option value="@rom.Id">@rom.RoomNo1</option>
+                            }
+                        }
+                    </select>
+                </div>
+
+
+            </div>
+            
+            
+            <div class="form-group">
+                <label for="DayId" class="col-md-2">Select Course<span style="color: red;">*</span></label>
+                <div class="col-md-6">
+                    <select name="DayId" id="DayId" class="form-control">
+                        <option value="">Select Teacher</option>
+                        @if (days != null)
+                        {
+                            foreach (Day dayss in days)
+                            {
+                                <option value="@dayss.Id">@dayss.DayName</option>
+                            }
+                        }
+                    </select>
+                </div>
+
+
+            </div>
+            
+            <div class="form-control">
+                <div class="col-md-2">
+                    @Html.LabelFor(x=>x.From)
+                    <span style="color:red;">*</span>
+                </div>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(x=>x.From, new {@class = "form-control"})
+                </div>
+                <div class="col-md-2">
+                    @Html.ValidationMessageFor(x=>x.From)
+                </div>
+            </div>
+            
+            <div class="form-control">
+                <div class="col-md-2">
+                    @Html.LabelFor(x => x.To)
+                    <span style="color:red;">*</span>
+                </div>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(x => x.To, new { @class = "form-control" })
+                </div>
+                <div class="col-md-2">
+                    @Html.ValidationMessageFor(x => x.To)
+                </div>
+            </div>
+
+        </div>
+    }
+
+</body>
+</html>

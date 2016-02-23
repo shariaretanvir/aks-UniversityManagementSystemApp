@@ -1,0 +1,107 @@
+﻿@using System.Web.UI.WebControls
+@model UniversityManagementSystemApp.Models.Department
+
+@{
+    string error =  ViewBag.Error;
+    ViewBag.Title = "DepartmentSave";
+}
+
+<style>
+    form label.error {
+        display: inline;
+        font: 14px Tahoma,sans-serif;
+        color: #ed7476;
+        margin-left: 5px;
+        font-weight: bold;
+    }
+
+    form input.error, form input.error:hover, form input.error:focus, form select.error, form textarea.error {
+        border: 1px solid #ed7476;
+        background: #FFEDED;
+    }
+
+    .form-control {
+        display: inline-block;
+    }
+</style>
+<h2>DepartmentSave</h2>
+
+
+<form method="POST" id="myForm" class="form-horizontal">
+
+
+
+    <div class="form-horizontal">
+
+
+        <h4>Department</h4>
+        <hr />
+
+        <div class="form-group">
+            <label for="Code" class="col-md-2">Code<span style="color: red;">*</span></label>
+            <div class="col-md-8">
+                <input type="text" name="Code" id="Code" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Name" class="col-md-2">Name<span style="color: red;">*</span></label>
+            <div class="col-md-8">
+                <input type="text" name="Name" id="Name" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+
+        <div class="panel-body panel-danger">
+            @ViewBag.Message
+        </div>
+        <div class="panel-body panel-danger">
+            @if (error != null)
+            {
+                 @ViewBag.Error
+            }
+        </div>
+
+
+    </div>
+    
+
+</form>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+   <script>
+       $().ready(function () {
+           $("#myForm").validate({
+               rules: {
+                   Code: {
+                       required: true,
+                       rangelength: [2, 7]
+                   },
+                   Name: {
+                       required: true
+                   }
+               },
+               messages: {
+                   Code: {
+                       required: "Code Must Be Required",
+                       rangelength: "Must be 2 to 7 Character long"
+                   },
+                   Name: "Name Must Be Required"
+               }
+           });
+       });
+</script>
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a82d09c5966343f7828c76c80a592431" Name="Diagram1">
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.AllocateClassRoom" Width="1.5" PointX="5.25" PointY="15.25" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.Course" Width="1.5" PointX="3" PointY="20.125" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.CourseAssignTeacher" Width="1.5" PointX="8.25" PointY="14.75" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.Day" Width="1.5" PointX="3" PointY="24.375" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.Department" Width="1.5" PointX="0.75" PointY="10.5" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.Designation" Width="1.5" PointX="0.75" PointY="14" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.Grade" Width="1.5" PointX="3" PointY="27" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.RoomNo" Width="1.5" PointX="3" PointY="17" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.Semester" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.Student" Width="1.5" PointX="3" PointY="8.375" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.StudentEnrollCourse" Width="1.5" PointX="5.25" PointY="26.875" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.StudentResult" Width="1.5" PointX="5.25" PointY="20.75" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.Teacher" Width="1.5" PointX="3" PointY="12.125" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_AllocateClassRoom_Course" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_AllocateClassRoom_Day" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_AllocateClassRoom_Department" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_AllocateClassRoom_RoomNo" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_Course_Department" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_CourseAssignTeacher_CourseAssignTeacher" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_StudentEnrollCourse_Course" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_StudentResult_Course" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_CourseAssignTeacher_Department" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_CourseAssignTeacher_Teacher" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_Student_Department" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_Teacher_Department" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_Teacher_Designation" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_StudentResult_Grade" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
