@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -142,58 +143,58 @@
     </Compile>
     <Compile Include="ImpFunction.cs" />
     <Compile Include="Models\AllocateClassRoom.cs">
-      <DependentUpon>UniversityManagementEF.tt</DependentUpon>
+      <DependentUpon>UniversitySemesterDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Course.cs">
-      <DependentUpon>UniversityManagementEF.tt</DependentUpon>
+      <DependentUpon>UniversitySemesterDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CourseAssignTeacher.cs">
-      <DependentUpon>UniversityManagementEF.tt</DependentUpon>
+      <DependentUpon>UniversitySemesterDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Day.cs">
-      <DependentUpon>UniversityManagementEF.tt</DependentUpon>
+      <DependentUpon>UniversitySemesterDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Department.cs">
-      <DependentUpon>UniversityManagementEF.tt</DependentUpon>
+      <DependentUpon>UniversitySemesterDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Designation.cs">
-      <DependentUpon>UniversityManagementEF.tt</DependentUpon>
+      <DependentUpon>UniversitySemesterDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Grade.cs">
-      <DependentUpon>UniversityManagementEF.tt</DependentUpon>
+      <DependentUpon>UniversitySemesterDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RoomNo.cs">
-      <DependentUpon>UniversityManagementEF.tt</DependentUpon>
+      <DependentUpon>UniversitySemesterDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Semester.cs">
-      <DependentUpon>UniversityManagementEF.tt</DependentUpon>
+      <DependentUpon>UniversitySemesterDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Student.cs">
-      <DependentUpon>UniversityManagementEF.tt</DependentUpon>
+      <DependentUpon>UniversitySemesterDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StudentEnrollCourse.cs">
-      <DependentUpon>UniversityManagementEF.tt</DependentUpon>
+      <DependentUpon>UniversitySemesterDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StudentResult.cs">
-      <DependentUpon>UniversityManagementEF.tt</DependentUpon>
+      <DependentUpon>UniversitySemesterDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Teacher.cs">
-      <DependentUpon>UniversityManagementEF.tt</DependentUpon>
+      <DependentUpon>UniversitySemesterDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UniversityManagementEF.Context.cs">
+    <Compile Include="Models\UniversitySemesterDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>UniversityManagementEF.Context.tt</DependentUpon>
+      <DependentUpon>UniversitySemesterDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UniversityManagementEF.cs">
+    <Compile Include="Models\UniversitySemesterDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>UniversityManagementEF.tt</DependentUpon>
+      <DependentUpon>UniversitySemesterDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UniversityManagementEF.Designer.cs">
+    <Compile Include="Models\UniversitySemesterDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>UniversityManagementEF.edmx</DependentUpon>
+      <DependentUpon>UniversitySemesterDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\ViewStudentInfo.cs" />
@@ -208,24 +209,24 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\UniversitySemesterDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UniversitySemesterDB.edmx</DependentUpon>
+      <LastGenOutput>UniversitySemesterDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\UniversitySemesterDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UniversitySemesterDB.edmx</DependentUpon>
+      <LastGenOutput>UniversitySemesterDB.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\UniversityManagementEF.edmx">
+    <EntityDeploy Include="Models\UniversitySemesterDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>UniversityManagementEF.Designer.cs</LastGenOutput>
+      <LastGenOutput>UniversitySemesterDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\UniversityManagementEF.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>UniversityManagementEF.edmx</DependentUpon>
-      <LastGenOutput>UniversityManagementEF.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\UniversityManagementEF.edmx.diagram">
-      <DependentUpon>UniversityManagementEF.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\UniversityManagementEF.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>UniversityManagementEF.edmx</DependentUpon>
-      <LastGenOutput>UniversityManagementEF.cs</LastGenOutput>
+    <Content Include="Models\UniversitySemesterDB.edmx.diagram">
+      <DependentUpon>UniversitySemesterDB.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />

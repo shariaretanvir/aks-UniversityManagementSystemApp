@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6bcffb8b649e4aa08021e88934156e07" Name="Diagram1">
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.AllocateClassRoom" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.Course" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.CourseAssignTeacher" Width="1.5" PointX="8.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.Day" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.Department" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.Designation" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.Grade" Width="1.5" PointX="6" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.RoomNo" Width="1.5" PointX="3" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.Semester" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.Student" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.StudentEnrollCourse" Width="1.5" PointX="5.25" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.StudentResult" Width="1.5" PointX="8.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversitySemesterDBModel.Teacher" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_AllocateClassRoom_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_AllocateClassRoom_Day" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_AllocateClassRoom_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_AllocateClassRoom_RoomNo" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_Course_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_CourseAssignTeacher_CourseAssignTeacher" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_StudentEnrollCourse_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_StudentResult_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_CourseAssignTeacher_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_CourseAssignTeacher_Teacher" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_Student_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_Teacher_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_Teacher_Designation" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversitySemesterDBModel.FK_StudentResult_Grade" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

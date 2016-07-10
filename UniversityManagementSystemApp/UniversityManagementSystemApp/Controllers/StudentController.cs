@@ -23,7 +23,7 @@ namespace UniversityManagementSystemApp.Controllers
         public ActionResult StudentSave(Student student)
         {
             try
-            {
+            { 
                 ViewBag.listofDepartments = aCourseManager.LoadDepartment();
                 ViewBag.Message = aStudentManager.Save(student);
                  //> 0 ? "One Student Saved" : "Save Failed";
