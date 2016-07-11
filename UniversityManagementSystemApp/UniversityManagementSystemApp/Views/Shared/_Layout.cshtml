@@ -20,36 +20,30 @@
                 @Html.ActionLink("University Management System", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
+                
                 <ul class="nav navbar-nav">
                     <li>
-                        <select class="form-control">
-                            <option>Department</option>
-                            <option>Department Save</option>
-                            <option>Show Department</option>
+                        <select class="form-control" onchange = "document.location.href = '/Department/' + this.options[this.selectedIndex].value;">
+                            <option >Department</option>
+                            <option value="DepartmentSave">Department Save</option>
+                            <option value="ShowAllDepartment">Show Department</option>
                         </select>
                     </li>
                     <li>
-                        <select class="form-control">
+                        <select class="form-control" onchange="document.location.href = '/Student/' + this.options[this.selectedIndex].value;">
                             <option>Student</option>
-                            <option>Student Save</option>
-                            <option>Show Student</option>
+                            <option value="StudentSave">Student Save</option>
                         </select>
                     </li>
                     <li>
-                        <select class="form-control">
+                        <select class="form-control" onchange="document.location.href = '/Course/' + this.options[this.selectedIndex].value;">
                             <option>Course</option>
-                            <option>Course Save</option>
-                            <option>Course Assigning</option>
+                            <option value="SaveCourse">Course Save</option>
+                            <option value="CourseAssigning">Course Assigning</option>
                         </select>
-                    </li> 
-
-                    @*<li>@Html.ActionLink("Save Department", "DepartmentSave", "Department")</li>
-                    <li>@Html.ActionLink("Show Department", "ShowAllDepartment", "Department")</li>
-                    <li>@Html.ActionLink("Insert Student", "StudentSave", "Student")</li>*@
-                    @*<li>@Html.ActionLink("Insert Course", "SaveCourse", "Course")</li>
-                    <li>@Html.ActionLink("Course Assigning Teacher", "CourseAssigning", "Course")</li>*@
+                    </li>
                     <li>@Html.ActionLink("Insert Teacher", "SaveTeacher", "Teacher")</li>
-                    <li @Html.ActionLink("Room Assigning", "Index", "ClassRoom")></li>
+                    <li> @Html.ActionLink("Allocate Room", "Index", "ClassRoom")</li>
                 </ul>
             </div>
         </div>
