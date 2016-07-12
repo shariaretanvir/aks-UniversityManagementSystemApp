@@ -19,5 +19,16 @@ namespace UniversityManagementSystemApp.DAL
         {
             return aDbEntities.Days.ToList();
         }
+
+        public List<AllocateClassRoom> GetAllCourse()
+        {
+            return aDbEntities.AllocateClassRooms.ToList();
+        }
+
+        public int Save(AllocateClassRoom allocateClassRoom)
+        {
+            aDbEntities.AllocateClassRooms.Add(allocateClassRoom);
+            return aDbEntities.SaveChanges();
+        }
     }
 }

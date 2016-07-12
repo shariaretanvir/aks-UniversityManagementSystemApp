@@ -5,6 +5,7 @@
     List<RoomNo> roomNo = ViewBag.RoomNo;
     List<Day> days = ViewBag.Day;
     List<SelectListItem> alistofdept = ViewBag.listofDepartments;
+    string message = ViewBag.message;
     Layout = null;
 }
 
@@ -112,7 +113,9 @@
             <div style="text-align: center">
                 <input type="submit" value="Allocate" id="allocateButton" class="btn btn-default" />
             </div>
-
+            <div>
+                @message
+            </div>
         </div>
     }
 

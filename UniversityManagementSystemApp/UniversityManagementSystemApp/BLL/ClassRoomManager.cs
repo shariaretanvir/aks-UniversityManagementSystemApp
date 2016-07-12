@@ -22,5 +22,18 @@ namespace UniversityManagementSystemApp.BLL
         {
             return aClassRoomGateway.Day();
         }
+
+        public List<AllocateClassRoom> GetAllCourse()
+        {
+            return aClassRoomGateway.GetAllCourse();
+        }
+
+        public string Save(AllocateClassRoom allocateClassRoom)
+        {
+            if (aClassRoomGateway.Save(allocateClassRoom) == 1)
+                return "Saved";
+            return "Saved Failed";
+
+        }
     }
 }
