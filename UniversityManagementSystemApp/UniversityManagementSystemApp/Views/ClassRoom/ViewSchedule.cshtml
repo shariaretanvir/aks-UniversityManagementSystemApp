@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "ViewSchedule";
+    List<SelectListItem> aListItem = ViewBag.listofDepartments;
+}
+
+<h2>ViewSchedule</h2>
+
+@using (Html.BeginForm("ViewSchedule", "ClassRoom", null, FormMethod.Post, new { @id = "myform", @name = "myform" }))
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-2">Department</div>
+            <div class="col-md-8">
+                @Html.DropDownList("Dept", new List<SelectListItem>(aListItem), "Select Department", new { @class = "form-control" })
+            </div>
+        </div>
+        <table id="info" class="table table-hover">
+            <thead>
+                <tr>
+                    <td>Course Code</td>
+                    <td>Course Name</td>
+                    <td>Schedule Info</td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+}
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#Dept").change(function () {
+                var valu = $("#Dept").val();
+                $("#Dept").empty();
+                $("#Dept").append('<option value=' + "" + '>' + "Select Department" + '</option>');
+                var json = { deptId: valu };
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("FetchAllocateInfo", "ClassRoom")',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(json),
+                    success: function (data) {
+                        $.each(data, function (key, value) {
+                            $("#info > tbody").append('<tr><td>' + value["Code"] + '</td> <td>' + value["Name"] + '</td> <td>' + value["AllocateInfo"] + '</td></tr>');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+}

@@ -35,5 +35,10 @@ namespace UniversityManagementSystemApp.BLL
             return "Saved Failed";
 
         }
+
+        public object FetchAllocateInfo(int deptId)
+        {
+            return aClassRoomGateway.FetchAllocateInfo(deptId);
+        }
     }
 }

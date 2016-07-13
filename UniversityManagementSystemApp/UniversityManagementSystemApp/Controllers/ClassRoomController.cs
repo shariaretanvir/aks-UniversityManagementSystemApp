@@ -39,8 +39,8 @@ namespace UniversityManagementSystemApp.Controllers
                 TimeSpan end = TimeSpan.Parse(allocateClassRooms.ToState);
                 //TimeSpan timemy = TimeSpan.Parse(allocateClassRooms.FromState);
                 //TimeSpan timemy1 = TimeSpan.Parse(allocateClassRooms.ToState);
-                if ((TimeBetween(timemy, start, end) && (allocateClassRooms.RoomId == allocateClassRoom.RoomId) &&
-                    (allocateClassRooms.DayId == allocateClassRoom.DayId)) || (TimeBetween(timemy1, start, end) && (allocateClassRooms.RoomId == allocateClassRoom.RoomId) &&
+                if ((TimeBetween((timemy), start, end) && (allocateClassRooms.RoomId == allocateClassRoom.RoomId) &&
+                    (allocateClassRooms.DayId == allocateClassRoom.DayId)) || (TimeBetween((timemy1), start, end) && (allocateClassRooms.RoomId == allocateClassRoom.RoomId) &&
                     (allocateClassRooms.DayId == allocateClassRoom.DayId)))
                 {
                     ViewBag.message = "This Schedule is already booked !!";
@@ -60,23 +60,7 @@ namespace UniversityManagementSystemApp.Controllers
                     ViewBag.Day = aClassRoomManager.Day();
                     return View();
                 }
-                //else
-                //{
-                //    ViewBag.listofDepartments = aCourseManager.LoadDepartment();
-                //    ViewBag.RoomNo = aClassRoomManager.RoomNo();
-                //    ViewBag.Day = aClassRoomManager.Day();
-                //    try
-                //    {
-                //        ViewBag.message = aClassRoomManager.Save(allocateClassRoom);
-                //        return View();
-                //    }
-                //    catch (Exception e)
-                //    {
-                //        ViewBag.message = e.Message;
-                //        return View();
-                //    }
-                //}
-            }
+              }
             ViewBag.listofDepartments = aCourseManager.LoadDepartment();
             ViewBag.RoomNo = aClassRoomManager.RoomNo();
             ViewBag.Day = aClassRoomManager.Day();
@@ -88,7 +72,7 @@ namespace UniversityManagementSystemApp.Controllers
         private bool TimeBetween(TimeSpan timemy, TimeSpan time, TimeSpan time1)
         {
             if (time < time1)
-                return time <= timemy && timemy <= time1;
+                return time < timemy && timemy < time1;
             // start is after end, so do the inverse comparison
             return !(time1 < timemy && timemy < time);
         }
@@ -97,6 +81,19 @@ namespace UniversityManagementSystemApp.Controllers
         {
             DateTime time = DateTime.Parse(p0);
             return time.ToString("HH:mm");
+        }
+
+
+        public ActionResult ViewSchedule()
+        {
+            ViewBag.listofDepartments = aCourseManager.LoadDepartment();
+            return View();
+        }
+        [HttpPost]
+        public JsonResult FetchAllocateInfo(int deptId)
+        {
+            object a = aClassRoomManager.FetchAllocateInfo(deptId);
+            return Json(a, JsonRequestBehavior.AllowGet);
         }
     }
 }
